@@ -44,9 +44,9 @@ constexpr int edit_distance(S s, unsigned m, T t, unsigned n)
 	}
 	std::iota(v0->begin(), v0->end(), 0);
 
-	for (auto i : std::views::iota(0u, m)) {
+	for (auto i = 0u; i < m; ++i) {
 		(*v1)[0] = i+1;
-		for (auto j : std::views::iota(0u, n)) {
+		for (auto j = 0u; j < n; ++j) {
 			auto const deletion_cost = (*v0)[j+1] + 1;
 			auto const insertion_cost = (*v1)[j] + 1;
 			auto const substitution_cost = (*v0)[j] + (s[i] != t[j]);
